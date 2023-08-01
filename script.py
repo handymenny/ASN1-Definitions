@@ -77,6 +77,9 @@ def postProcess(root, version, fileEutra, fileNr):
         end = content.index(stopString) + len(stopString) + 1
         filterCommon = content[start:end]
 
+        # FreqBandIndicatorNR is FreqBandIndicatorNR-r15 in EUTRA
+        filterCommon = filterCommon.replace('FreqBandIndicatorNR', 'FreqBandIndicatorNR-r15')
+
         if filterCommon.find('maxCellGroupings-r16') != -1:
             filterCommon += '\nmaxCellGroupings-r16                    \
                 INTEGER ::= 32      -- Maximum number of cell groupings for NR-DC'

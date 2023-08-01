@@ -16318,8 +16318,8 @@ UE-CapabilityRequestFilterCommon ::=            SEQUENCE {
 }
 
 CellGrouping-r16 ::=    SEQUENCE {
-    mcg-r16                 SEQUENCE (SIZE (1..maxBands)) OF FreqBandIndicatorNR,
-    scg-r16                 SEQUENCE (SIZE (1..maxBands)) OF FreqBandIndicatorNR,
+    mcg-r16                 SEQUENCE (SIZE (1..maxBands)) OF FreqBandIndicatorNR-r15,
+    scg-r16                 SEQUENCE (SIZE (1..maxBands)) OF FreqBandIndicatorNR-r15,
     mode-r16                ENUMERATED {sync, async}
 }
 
