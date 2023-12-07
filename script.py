@@ -115,8 +115,11 @@ def script_main(repo, definitions, repoDir, outputDir):
 
 if __name__ == '__main__':
     repo = 'https://github.com/wireshark/wireshark'
-    definitions = ['epan/dissectors/asn1/lte-rrc/EUTRA-RRC-Definitions.asn',
-                   'epan/dissectors/asn1/nr-rrc/NR-RRC-Definitions.asn']
+    asn1dir = 'epan/dissectors/asn1'
+    definitions = [f'{asn1dir}/lte-rrc/EUTRA-RRC-Definitions.asn',
+                   f'{asn1dir}/nr-rrc/NR-RRC-Definitions.asn',
+                   f'{asn1dir}/lte-rrc/EUTRA-InterNodeDefinitions.asn',
+                   f'{asn1dir}/nr-rrc/NR-InterNodeDefinitions.asn']
     repoDir = 'wireshark'
     outputDir = 'definitions'
     script_main(repo, definitions, repoDir, outputDir)
