@@ -1,4 +1,4 @@
-name: Update ASN Definitions
+name: Update RRC Definitions
 on:
   schedule:
     - cron:  '0 10 1 * *'
@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Get Definitions
-        id: get-definitions
+      - name: Get Rrc Definitions
+        id: get-rrc-definitions
         run: |
           python script.py
-          last_version=$(ls definitions/ | tail -1)
+          last_version=$(ls definitions/rrc/ | tail -1)
           echo "last_version=$last_version" >> $GITHUB_OUTPUT
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
