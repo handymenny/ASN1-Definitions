@@ -121,5 +121,5 @@ if __name__ == '__main__':
                    f'{asn1dir}/lte-rrc/EUTRA-InterNodeDefinitions.asn',
                    f'{asn1dir}/nr-rrc/NR-InterNodeDefinitions.asn']
     repoDir = 'wireshark'
-    outputDir = 'definitions'
+    outputDir = 'definitions/rrc'
     script_main(repo, definitions, repoDir, outputDir)
