@@ -35,22 +35,22 @@ def sparseCheckout(files, repoDir):
     # configure sparse-checkout
     print('Pulling asn files...')
     subprocess.run(f'git -C {repoDir} sparse-checkout set --no-cone {filesString}',
-                   encoding='utf-8', capture_output=True, text=True, shell=True)
+                   encoding='utf-8', errors='ignore', capture_output=True, text=True, shell=True)
     # checkout
     subprocess.run(f'git -C {repoDir} checkout',
-                   encoding='utf-8', capture_output=True, text=True, shell=True)
+                   encoding='utf-8', errors='ignore', capture_output=True, text=True, shell=True)
 
 
 def retrieveAsnDefinitions(file, repoDir, outputDir):
     basename = os.path.basename(file)
     print(f'Retrieving {basename} versions...')
     revs = subprocess.run(
-        f'git -C {repoDir} rev-list --all {file}', encoding='utf-8', capture_output=True, text=True, shell=True)
+        f'git -C {repoDir} rev-list --all {file}', encoding='utf-8', errors='ignore', capture_output=True, text=True, shell=True)
     revList = revs.stdout.splitlines()
     revList.reverse()
     for rev in revList:
         output = subprocess.run(
-            f'git -C {repoDir} cat-file blob {rev}:{file}', encoding='utf-8', capture_output=True, text=True, shell=True)
+            f'git -C {repoDir} cat-file blob {rev}:{file}', encoding='utf-8', errors='ignore', capture_output=True, text=True, shell=True)
         stdout = output.stdout
         versionMatch = re.search(r'V([\d\.]+)', stdout, flags=re.IGNORECASE)
         if versionMatch:
