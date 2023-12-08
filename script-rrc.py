@@ -5,7 +5,7 @@ import subprocess
 
 def writeText(filepath, text):
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
-    with open(filepath, 'w', encoding='utf-8') as f:
+    with open(filepath, 'w', encoding='utf-8', newline='') as f:
         f.write(text)
 
 
