@@ -1789,13 +1789,11 @@ TAICancelledNR-Item-ExtIEs NGAP-PROTOCOL-EXTENSION ::= {
 --	tAI					TAI,
 --	iE-Extensions		ProtocolExtensionContainer { {TAIItem-ExtIEs} } OPTIONAL,
 --	...
---
-}
+--}
 
 --TAIItem-ExtIEs NGAP-PROTOCOL-EXTENSION ::= {
 --	...
---
-}
+--}
 
 TAIListForRestart ::= SEQUENCE (SIZE(1..maxnoofTAIforRestart)) OF TAI
 
