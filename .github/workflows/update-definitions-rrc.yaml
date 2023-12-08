@@ -12,7 +12,7 @@ jobs:
       - name: Get Rrc Definitions
         id: get-rrc-definitions
         run: |
-          python script.py
+          python script-rrc.py
           last_version=$(ls definitions/rrc/ | tail -1)
           echo "last_version=$last_version" >> $GITHUB_OUTPUT
       - name: Create Pull Request
