@@ -52,7 +52,7 @@ def retrieveAsnDefinitions(file, repoDir, outputDir):
         output = subprocess.run(
             f'git -C {repoDir} cat-file blob {rev}:{file}', encoding='utf-8', errors='ignore', capture_output=True, text=True, shell=True)
         stdout = output.stdout
-        versionMatch = re.search(r'V([\d\.]+)', stdout, flags=re.IGNORECASE)
+        versionMatch = re.search(r'V([\d\.]+) ', stdout)
         if versionMatch:
             version = versionMatch.group(1)
             # ignore patch
