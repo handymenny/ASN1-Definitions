@@ -68,7 +68,13 @@ def postProcess(root, version, fileEutra, fileNr):
 
     filterCommon = ''
     content = ''
-    with open(f'{root}/{version}/{fileNr}', encoding='utf-8', errors='ignore') as file:
+    pathNr = f'{root}/{version}/{fileNr}'
+    pathLte = f'{root}/{version}/{fileEutra}'
+
+    if not os.path.isfile(pathNr) or not os.path.isfile(pathLte):
+        return
+
+    with open(pathNr, encoding='utf-8', errors='ignore') as file:
         content = file.read()
 
         startString = '-- TAG-UE-CAPABILITYREQUESTFILTERCOMMON-START'
@@ -84,7 +90,7 @@ def postProcess(root, version, fileEutra, fileNr):
             filterCommon += '\nmaxCellGroupings-r16                    \
                 INTEGER ::= 32      -- Maximum number of cell groupings for NR-DC'
 
-    with open(f'{root}/{version}/{fileEutra}', encoding='utf-8', errors='ignore') as file:
+    with open(pathLte, encoding='utf-8', errors='ignore') as file:
         content = file.read()
 
         endIndex = content.rfind('END') - 1
