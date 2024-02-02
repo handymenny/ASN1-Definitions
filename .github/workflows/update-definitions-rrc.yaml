@@ -8,7 +8,7 @@ jobs:
   updateDefinitions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Get Rrc Definitions
         id: get-rrc-definitions
         run: |
