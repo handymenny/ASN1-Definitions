@@ -8,7 +8,7 @@ jobs:
   updateDefinitions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Get S1AP Definitions
         id: get-s1ap-definitions
         run: |
